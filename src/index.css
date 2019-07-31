@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+html{height:100%;background:#fff}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'AppleSDGothicNeo-Regular',sans-serif;color:#000}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+input,select,textarea,button{font-size:100%;vertical-align:middle}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+body{height:100%;-webkit-text-size-adjust:none}
+a{color:inherit;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],button,input[type='button'],input[type='submit'],input[type='reset'],input[type='file']{-webkit-appearance:none;border-radius:0}
+input[type='checkbox']{-webkit-appearance:checkbox}
+input[type='radio']{-webkit-appearance:radio}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+.blind,legend{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;line-height:0;white-space:normal;word-wrap:break-word;word-break:break-all;clip:rect(0,0,0,0)}
+.blind:before,legend:before{display:block;width:0;height:0;font-size:0;content:'\00a0'}
+caption{overflow:hidden;width:1px;height:1px;margin-top:-1px;padding:0;font-size:1px;line-height:0;color:transparent;white-space:nowrap;text-overflow:ellipsis}
+caption.blind{position:static;margin:-1px 0 0}
+caption.blind:before{display:none}
+caption .blind{position:static}
+caption .blind:before{display:none}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.mcom_tit_renew {
+    position: relative;
+    height: 42px;
+    padding: 0 50px;
+    border-bottom: 1px solid #bcbcbc;
+    background-color: #fff;
+    text-align: center;
+}
+.mcom_tit_renew .mcom_tit_txt {
+    display: inline-block;
+    overflow: hidden;
+    padding-top: 1px;
+    max-width: 100%;
+    font-size: 17px;
+    color: #222;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 42px;
+}
+.mcom_tit_renew .mcom_tit_lft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.mcom_tit_renew .mcom_tit_rgt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-right: 7px;
+    font-size: 0;
+}
+.mcom_tit_renew .mcom_tit_lft:after,
+.mcom_tit_renew .mcom_tit_rgt:after {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
 }
