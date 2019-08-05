@@ -1,0 +1,31 @@
+/* gnb 타이틀*/
+.mcom_tit_renew{position:relative;height:42px;padding:0 50px;border-bottom:1px solid #bcbcbc;background-color:#fff;text-align:center}
+.mcom_tit_renew.ty_top{height:50px}
+.mcom_tit_renew.ty_top .mcom_tit_txt{line-height:50px}
+.mcom_tit_renew.ty_fixed{position:fixed;top:0;right:0;left:0}
+.mcom_tit_renew .mcom_tit_txt{display:inline-block;overflow:hidden;padding-top:1px;max-width:100%;font-size:17px;color:#222;font-weight:bold;text-overflow:ellipsis;white-space:nowrap;line-height:42px}
+.mcom_tit_renew .mcom_tit_lft{position:absolute;top:0;left:0;bottom:0}
+.mcom_tit_renew .mcom_tit_rgt{position:absolute;top:0;right:0;bottom:0;margin-right:7px;font-size:0}
+.mcom_tit_renew .mcom_tit_lft:after,
+.mcom_tit_renew .mcom_tit_rgt:after{display:inline-block;height:100%;vertical-align:middle;content:''}
+
+.mcom_tit_renew .sp_ctg_icon{display:inline-block;background:url(../../img/sp_top_cate.png) -25px -75px no-repeat;background-size:100px 100px;vertical-align:middle;}
+.mcom_tit_renew .btn_tx{display:inline-block;min-width:50px;height:26px;padding:0 5px;border:1px solid #222;font-size:12px;color:#222;vertical-align:middle;line-height:26px;box-sizing:border-box}
+.mcom_tit_renew .btn_back{display:inline-block;width:50px;height:42px;vertical-align:middle;text-align:center}
+.mcom_tit_renew .btn_back:after{display:inline-block;height:100%;vertical-align:middle;content:''}
+.mcom_tit_renew .btn_back .ctg_icon_back{width:22px;height:20px;vertical-align:middle;background-position:0 0}
+.mcom_tit_renew .btn_cate{display:inline-block;vertical-align:middle}
+.mcom_tit_renew .btn_cate .sp_ctg_icon{width:22px;height:20px}
+.mcom_tit_renew .btn_cate button{height:42px;padding:0 8px 0 7px}
+.mcom_tit_renew .btn_cate a{display:inline-block;height:42px;padding:0 8px 0 7px;text-align:center}
+.mcom_tit_renew .btn_cate a:after{display:inline-block;height:100%;vertical-align:middle;content:''}
+.mcom_tit_renew .btn_cate a .sp_ctg_icon{font-size:12px}
+.mcom_tit_renew .btn_share .ctg_icon_share{background-position:-50px 0}
+.mcom_tit_renew .btn_cart .ctg_icon_cart{float:left;position:relative;background-position:-75px 0}
+.mcom_tit_renew .btn_cart .pd_numbx{position:absolute;top:-8px;left:50%;display:block;text-align:center}
+.mcom_tit_renew .btn_cart .pd_num{display:inline-block;min-width:16px;padding:0 2px;text-align:center;font-size:11px;font-family:'Roboto-Medium','AppleSDGothicNeo-Regular',sans-serif;color:#fff;font-weight:bold;border-radius:10px;background:#ff5b59;letter-spacing:-1px;box-sizing:border-box}
+.mcom_tit_renew .ctg_icon_search{background-position:0 -25px}
+.mcom_tit_renew .ctg_icon_home{background-position:-25px -25px}
+.mcom_tit_renew .ctg_icon_close{background-position:-50px -25px}
+.mcom_tit_renew .ctg_icon_barcode{background-position:-75px -25px}
+
