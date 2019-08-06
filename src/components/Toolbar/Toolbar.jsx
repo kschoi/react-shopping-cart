@@ -8,7 +8,7 @@ const Toolbar = props => {
         <>
             <div id="_cdtl_opt_bar" className={`${style.cdtl_opt_bar} ${style._fixed_banner} ${style.ty_base} ${open ? style.on : ''}`}>
                 <div className={style.cdtl_opt_toggle}>
-                    <a href="#" onClick={(e) => setOpen(!open)} className={style.cdtl_btn_toggle} role="button">
+                    <a href="#" onClick={(e) => {e.preventDefault(); setOpen(!open)}} className={style.cdtl_btn_toggle} role="button">
                         <span className={style.cdtl_sp_cob}>
                             <span className={`${style.blind} ${style.sr_off}`}>앱바펼침</span>
                             <span className={`${style.blind} ${style.sr_on}`}>앱바접음</span>
