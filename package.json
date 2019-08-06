@@ -30,6 +30,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/react": "^5.1.10"
+    "@storybook/react": "^5.1.10",
+    "node-sass": "^4.12.0"
   }
 }
