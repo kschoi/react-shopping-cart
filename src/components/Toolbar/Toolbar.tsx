@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import style from './Toolbar.module.scss';
 
-const Toolbar = props => {
+interface IProps {
+    count: number,
+    deliveryCharge: number,
+    totalPrice: number 
+}
+
+const Toolbar: React.FC<IProps> = props => {
     const [open, setOpen] = useState(true);
 
     return (
