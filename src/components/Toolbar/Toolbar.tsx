@@ -25,7 +25,7 @@ const Toolbar: React.FC<ToolbarProps> = props => {
                     <div className={style.cdtl_totalcart_sum}>
                         <span className={style.cdtl_totalcart_tx}>
                             {props.count ? <>{props.count}</> : 0}개 선택
-                            {props.deliveryCharge && <>(배송비 {props.deliveryCharge}원)</>}
+                            {props.deliveryCharge > 0 && <>(배송비 {props.deliveryCharge}원)</>}
                         </span>
                         <strong className={style.cdtl_totalcart_price}>
                             <em className={style.ssg_price}>{props.totalPrice ? <>{props.totalPrice}</> : 0}</em><span className={style.ssg_tx}>원</span>
