@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { StatelessComponent, ButtonHTMLAttributes } from 'react';
 import './Button.scss';
 
-interface IProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     active: boolean,
     fill: boolean,
     label: string 
 }
 
-const Button: React.FC<IProps> = props => (
+const Button: StatelessComponent<ButtonProps> = props => (
     <div className={`Button ${ props.active ? props.fill ? `active fill` : `active no-fill` : `disabled`}`}>
         { props.label }
     </div>

@@ -30,7 +30,7 @@ caption .blind:before{display:none}
 .cdtl_opt_bar .cdtl_opt_toggle{position:relative;text-align:center}
 .cdtl_opt_bar .cdtl_opt_toggle:before{position:absolute;right:0;bottom:8px;left:0;height:10px;background:url(../../img/cdtl_bg_pt.png) repeat-x;background-size:1px 10px;content:''}
 .cdtl_opt_bar.on .cdtl_opt_toggle:before{position:absolute;right:0;bottom:8px;left:0;height:21px;background:url(../../img/cdtl_bg_pt2.png) repeat-x;background-size:1px 43px;content:''}
-.cdtl_opt_bar .cdtl_opt_toggle .cdtl_btn_toggle{display:block;position:relative;width:100%;height:29px;padding:0 0 6px;-webkit-box-sizing:border-box;box-sizing:border-box}
+.cdtl_opt_bar .cdtl_opt_toggle .cdtl_btn_toggle{display:block;position:relative;width:100%;height:30px;padding:0 0 6px;-webkit-box-sizing:border-box;box-sizing:border-box}
 .cdtl_opt_bar .cdtl_opt_toggle .cdtl_btn_toggle:before{position:absolute;right:0;bottom:0;left:0;height:7px;border-top:1px solid #262626;background-color:#fff;content:''}
 .cdtl_opt_bar .cdtl_opt_toggle .cdtl_btn_toggle .cdtl_sp_cob{overflow:hidden;position:relative;width:65px;height:22px;background-position:0 -175px;color:transparent;white-space:nowrap;vertical-align:top;text-overflow:ellipsis}
 .cdtl_opt_bar .cdtl_opt_toggle .cdtl_btn_toggle .cdtl_sp_cob .sr_off{display:block}
