@@ -8,7 +8,7 @@ interface ToolbarProps {
 }
 
 const Toolbar: React.FC<ToolbarProps> = props => {
-    const [open, setOpen] = useState<boolean | true>(true);
+    const [open, setOpen] = useState<boolean>(true);
 
     return (
         <div id="_cdtl_opt_bar" className={`${style.cdtl_opt_bar} ${style._fixed_banner} ${style.ty_base} ${open ? style.on : ''}`}>
