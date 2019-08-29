@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import style from './Toolbar.module.scss';
 
-interface ToolbarProps {
+interface IToolbarProps {
     count: number,
     deliveryCharge: number,
     totalPrice: number 
 }
 
-const Toolbar: React.FC<ToolbarProps> = props => {
+const Toolbar: React.FC<IToolbarProps> = (props) => {
     const [open, setOpen] = useState<boolean>(true);
 
     return (
@@ -35,6 +36,7 @@ const Toolbar: React.FC<ToolbarProps> = props => {
             </div>
         </div>
     );
-}
+};
 
 export default Toolbar;
+
