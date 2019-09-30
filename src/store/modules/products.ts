@@ -1,3 +1,23 @@
+import faker from 'faker';
+
+// =============================================================================
+// faker
+// =============================================================================
+faker.locale = "ko";
+
+let autoId = 0;
+
+const getFakerProductItem = (): ProductItemDataParams => ({
+  id : faker.random.number(),
+  title: faker.commerce.productName(),
+  price: parseFloat(faker.commerce.price()) * 100,
+  imageUrl: faker.random.image(),
+  quantity: 1,
+  selected: false,
+});
+
+const initialFakerProductItems: ProductItemDataParams[] = Array(5).fill('').map( () => getFakerProductItem() );
+
 // =============================================================================
 // types
 // =============================================================================
@@ -6,26 +26,20 @@ export interface ProductItemDataParams {
   id: number;         // 상품ID
   title: string;      // 상품명
   price: number;      // 상품가격
+  imageUrl: string;   // 상품이미지 Url
   quantity: number;   // 주문수량
   selected: boolean;
 }
 
 export interface ProductState {
+  total: number;
   productItems: ProductItemDataParams[];
-  input: string;
 }
 
-export const CREATE = "product/CREATE";
 export const REMOVE = "product/REMOVE";
 export const TOGGLE = "product/TOGGLE";
 export const SUBTRACT = "product/SUBTRACT";
 export const ADD = "product/ADD";
-export const CHANGE_INPUT = "product/CHANGE_INPUT";
-
-interface CreateAction {
-  type: typeof CREATE;
-  payload: ProductItemDataParams;
-}
 
 interface RemoveAction {
   type: typeof REMOVE;
@@ -55,40 +69,15 @@ interface AddAction {
   };
 }
 
-interface ChangeInputAction {
-  type: typeof CHANGE_INPUT;
-  meta: {
-    input: string;
-  };
-}
-
 export type ProductActionTypes =
-  | CreateAction
   | RemoveAction
   | ToggleAction
   | SubtractAction
-  | AddAction
-  | ChangeInputAction;
+  | AddAction;
 
 // =============================================================================
 // actions
 // =============================================================================
-
-let autoId = 0;
-let randomPrice = () => Math.floor(Math.random() * 1000) * 100;
-
-function create(title: string) {
-  return {
-    type: CREATE,
-    payload: {
-      id: autoId++,
-      title: title,
-      selected: false,
-      quantity: 1,
-      price: randomPrice()
-    }
-  };
-}
 
 function remove(id: number) {
   return {
@@ -126,22 +115,11 @@ function add(id: number) {
   };
 }
 
-function changeInput(input: string) {
-  return {
-    type: CHANGE_INPUT,
-    meta: {
-      input
-    }
-  };
-}
-
 export const actionCreators = {
-  create,
   toggle,
   remove,
   subtract,
   add,
-  changeInput
 };
 
 // =============================================================================
@@ -149,59 +127,64 @@ export const actionCreators = {
 // =============================================================================
 
 const initialState: ProductState = {
-  productItems: [],
-  input: ""
+  total: 0,
+  productItems: initialFakerProductItems,
 };
+
+function totalReducer(prev: number, next: ProductItemDataParams): number {
+  prev += (next.selected ? (next.price * next.quantity) : 0);
+  return prev;
+}
 
 export function productReducer(
   state = initialState,
   action: ProductActionTypes
 ): ProductState {
+  let tempProductItems: ProductItemDataParams[];
+  
   switch (action.type) {
-    case CREATE:
-      return {
-        input: "",
-        productItems: [...state.productItems, action.payload]
-      };
     case REMOVE:
+      tempProductItems = state.productItems.filter(product => product.id !== action.meta.id)
       return {
         ...state,
-        productItems: state.productItems.filter(product => product.id !== action.meta.id)
+        productItems: tempProductItems,
+        total: tempProductItems.reduce(totalReducer, 0),
       };
     case TOGGLE:
+      tempProductItems = state.productItems.map(product => {
+        if (product.id === action.meta.id) {
+          product.selected = !product.selected;
+        }
+        return product;
+      });
       return {
         ...state,
-        productItems: state.productItems.map(product => {
-          if (product.id === action.meta.id) {
-            product.selected = !product.selected;
-          }
-          return product;
-        })
+        productItems: tempProductItems,
+        total: tempProductItems.reduce(totalReducer, 0),
       };
     case SUBTRACT:
+      tempProductItems = state.productItems.map(product => {
+        if (product.id === action.meta.id) {
+          product.quantity > 1 && product.quantity--;
+        }
+        return product;
+      });
       return {
         ...state,
-        productItems: state.productItems.map(product => {
-          if (product.id === action.meta.id) {
-            product.quantity > 1 && product.quantity--;
-          }
-          return product;
-        })
+        productItems: tempProductItems,
+        total: tempProductItems.reduce(totalReducer, 0),
       };
     case ADD:
+      tempProductItems = state.productItems.map(product => {
+        if (product.id === action.meta.id) {
+          product.quantity++;
+        }
+        return product;
+      });
       return {
         ...state,
-        productItems: state.productItems.map(product => {
-          if (product.id === action.meta.id) {
-            product.quantity++;
-          }
-          return product;
-        })
-      };
-    case CHANGE_INPUT:
-      return {
-        ...state,
-        input: action.meta.input
+        productItems: tempProductItems,
+        total: tempProductItems.reduce(totalReducer, 0),
       };
     default:
       return state;
