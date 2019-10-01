@@ -10,8 +10,9 @@ import {
 import { bindActionCreators } from 'redux';
 
 interface Props {
-	total: number;
 	productItems: ProductItemDataParams[];
+	productItemsTotal: number;
+	productItemsCount: number;
 	ProductsActions: typeof productsActions;
 }
 
@@ -34,7 +35,7 @@ class ProductListContainer extends React.Component<Props> {
 	}
 
 	render() {
-		const { productItems, total } = this.props;
+		const { productItems, productItemsTotal, productItemsCount } = this.props;
 		const { onRemove, onToggle, onSubtract, onAdd } = this;
 		return (
 			<>
@@ -45,7 +46,7 @@ class ProductListContainer extends React.Component<Props> {
 					onSubtract={onSubtract}
 					onAdd={onAdd}
 				/>
-				<Toolbar count={0} deliveryCharge={0} totalPrice={total} />
+				<Toolbar count={productItemsCount} deliveryCharge={0} totalPrice={productItemsTotal} />
 			</>
 		);
 	}
@@ -53,7 +54,8 @@ class ProductListContainer extends React.Component<Props> {
 
 export default connect(
 	({products}: StoreState) => ({
-		total: products.total,
+		productItemsTotal: products.total,
+		productItemsCount: products.count,
 		productItems: products.productItems
 	}),
 	(dispatch) => ({

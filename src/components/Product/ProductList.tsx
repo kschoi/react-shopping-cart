@@ -46,11 +46,11 @@ const ProductList: React.SFC<Props> = ({
 
 
   return (
-    <div>
+    <>
       <ul>
         {productItemList}
       </ul>
-    </div>
+    </>
   );
 
 }

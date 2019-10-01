@@ -33,6 +33,7 @@ export interface ProductItemDataParams {
 
 export interface ProductState {
   total: number;
+  count: number;
   productItems: ProductItemDataParams[];
 }
 
@@ -128,11 +129,17 @@ export const actionCreators = {
 
 const initialState: ProductState = {
   total: 0,
+  count: 0,
   productItems: initialFakerProductItems,
 };
 
 function totalReducer(prev: number, next: ProductItemDataParams): number {
   prev += (next.selected ? (next.price * next.quantity) : 0);
+  return prev;
+}
+
+function countReducer(prev: number, next: ProductItemDataParams): number {
+  next.selected && prev++;
   return prev;
 }
 
@@ -161,6 +168,7 @@ export function productReducer(
         ...state,
         productItems: tempProductItems,
         total: tempProductItems.reduce(totalReducer, 0),
+        count: tempProductItems.reduce(countReducer, 0),
       };
     case SUBTRACT:
       tempProductItems = state.productItems.map(product => {
