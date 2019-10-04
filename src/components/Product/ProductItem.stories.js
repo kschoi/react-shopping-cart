@@ -13,10 +13,10 @@ storiesOf('ProductItem', module)
       selected={false}
       quantity={1}
       price={16000}
-      onToggle={() => onToggle(52)}
-      onRemove={() => onRemove(52)}
-      onSubtract={() => onSubtract(52)}
-      onAdd={() => onAdd(52)}
+    //   onToggle={() => onToggle(52)}
+    //   onRemove={() => onRemove(52)}
+    //   onSubtract={() => onSubtract(52)}
+    //   onAdd={() => onAdd(52)}
       title={'상품명'}
     />
   ))

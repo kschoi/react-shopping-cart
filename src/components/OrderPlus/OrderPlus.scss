@@ -1,0 +1,150 @@
+@import "../../styles/input";
+
+.codr_order_plus3 {
+	position: relative;
+	letter-spacing: -0.3px;
+	font-size: 13px;
+	padding-bottom: 20px;
+
+	.codr_order_plstit {
+		position: relative;
+		padding: 20px 14px 0;
+
+		h3 {
+			margin-right: 5px;
+			font-size: 13px;
+			font-weight: bold;
+			color: #ff5b59;
+			letter-spacing: -0.3px;
+			content: "+";
+
+			&:before {
+				margin-right: 5px;
+				content: "+";
+			}
+		}
+	}
+
+	.codr_order_plscont {
+		padding-left: 14px;
+	}
+
+	.codr_order_plstit .codr_btnarea_rgt {
+		position: absolute;
+		top: 36px;
+		right: 15px;
+	}
+
+	.codr_btn_arr3 {
+		color: #888;
+		font-size: 13px;
+		line-height: 18px;
+	}
+
+	.lst li {
+		position: relative;
+
+		&.on {
+			background-color: #fff;
+		}
+	}
+}
+
+.codr_order_plscont3 {
+	padding: 10px 15px;
+	line-height: 18px;
+	letter-spacing: -0.3px;
+
+	.tx {
+		display: block;
+		padding: 2px 0;
+	}
+
+	.codr_inp_rdo {
+		display: block;
+
+		label {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			line-height: 18px;
+		}
+	}
+}
+
+.codr_order_plus3 li {
+	label:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: -1px;
+		border: 1px solid #e0e0e0;
+	}
+
+	&.on label:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: -1px;
+		border: 2px solid #222;
+		z-index: 1;
+	}
+}
+
+.codr_order_plscont3 {
+	.codr_inp_rdo input {
+		top: 50%;
+		margin-top: -10px;
+		margin-left: 20px;
+
+		&:disabled {
+			&:after {
+				width: 20px;
+				height: 20px;
+				border: 1px solid #d1d1d1;
+				border-radius: 50%;
+				box-sizing: border-box;
+				background-size: 0;
+				background-color: #f5f5f5;
+			}
+
+			+ label {
+				background-color: #f9f9f9;
+
+				.tx {
+					color: #222;
+					opacity: 0.3;
+
+					strong,
+					.summary {
+						color: #222;
+						opacity: 0.3;
+					}
+				}
+
+				.tx2 {
+					opacity: 1;
+					font-weight: bold;
+					color: #222;
+					font-size: 12px;
+				}
+			}
+		}
+
+		+ label {
+			padding: 15px 0 15px 55px;
+		}
+	}
+
+	.codr_prdchg_lst {
+		margin: 0;
+
+		.codr_deliv_type {
+			padding: 0;
+		}
+	}
+}

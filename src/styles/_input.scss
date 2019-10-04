@@ -1,0 +1,62 @@
+/*default radio*/
+
+.codr_inp_rdo {
+	position: relative;
+	min-width: 20px;
+	display: inline-block;
+	min-height: 20px;
+	word-wrap: normal;
+	word-break: normal;
+	vertical-align: top;
+
+	input {
+		&[type="radio"] {
+			position: absolute;
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: none;
+			-webkit-appearance: none;
+			border-radius: 0;
+		}
+
+		&:after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 20px;
+			background: url('../../img/sp_form.png') 50% -25px no-repeat;
+			background-size: 20px auto;
+			-webkit-background-size: 20px auto;
+		}
+
+		&:checked:after {
+			background-position: 50% -49px;
+		}
+
+		+ label {
+			display: inline-block;
+			padding-left: 25px;
+			line-height: 20px;
+			font-size: 13px;
+			color: #666;
+			vertical-align: top;
+		}
+
+		&:disabled {
+			&:after {
+				background-position: 50% 0;
+			}
+
+			+ label {
+				color: #bbb;
+			}
+		}
+	}
+}

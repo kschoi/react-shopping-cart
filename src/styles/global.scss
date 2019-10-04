@@ -1,0 +1,12 @@
+@import "./mixin";
+@import "./reset";
+
+@include font-face("NanumBarunGothic", "https://sui.ssgcdn.com/ui/common/font/NanumBarunGothic", normal, normal, eot woff ttf);
+@include font-face("NanumBarunGothicBold", "https://sui.ssgcdn.com/ui/common/font/NanumBarunGothicWebBold", normal, normal, eot woff ttf);
+@include font-face("Roboto-Regular", "https://sui.ssgcdn.com/ui/common/font/Roboto-Regular", normal, normal, eot woff ttf);
+@include font-face("Roboto-Medium", "https://sui.ssgcdn.com/ui/common/font/Roboto-Medium", normal, normal, eot woff ttf);
+
+.rect.ty2 {
+	background: black;
+}
+
