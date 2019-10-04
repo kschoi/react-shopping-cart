@@ -3,12 +3,12 @@ import { useState } from 'react';
 import style from './Toolbar.module.scss';
 
 interface IToolbarProps {
-    count: number,
-    deliveryCharge: number,
-    totalPrice: number 
+    count: number;
+    deliveryCharge: number;
+    totalPrice: number;
 }
 
-const Toolbar: React.FC<IToolbarProps> = (props) => {
+const Toolbar: React.FC<IToolbarProps> = ({ count, deliveryCharge, totalPrice }) => {
     const [open, setOpen] = useState<boolean>(true);
 
     return (
@@ -25,11 +25,11 @@ const Toolbar: React.FC<IToolbarProps> = (props) => {
                 <div className={`${style.cdtl_totalcart} ${style.cdtl_opt_hide}`}>
                     <div className={style.cdtl_totalcart_sum}>
                         <span className={style.cdtl_totalcart_tx}>
-                            {props.count ? <>{props.count}</> : 0}개 선택
-                            {props.deliveryCharge > 0 && <>(배송비 {props.deliveryCharge}원)</>}
+                            {count ? <>{count}</> : 0}개 선택
+                            {deliveryCharge > 0 && <>(배송비 {deliveryCharge}원)</>}
                         </span>
                         <strong className={style.cdtl_totalcart_price}>
-                            <em className={style.ssg_price}>{props.totalPrice ? <>{props.totalPrice}</> : 0}</em><span className={style.ssg_tx}>원</span>
+                            <em className={style.ssg_price}>{totalPrice ? <>{totalPrice}</> : 0}</em><span className={style.ssg_tx}>원</span>
                         </strong>
                     </div>
                 </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/layouts/Header';
 import ProductListContainer from './container/ProductListContainer';
-import Toolbar from './components/Toolbar/Toolbar';
 
 // const productListData = [
 //     { "price": 1000, "mallName": "이마트몰", "brandName": "브랜드명", "name": ["상품명1"], imgPath: ["http://item.ssgcdn.com/07/00/95/item/1000024950007_i1_140.jpg"] },
@@ -15,7 +14,6 @@ const App: React.FC = () => {
     <div className="App">
       <Header />
       <ProductListContainer/>
-      <Toolbar count={0} deliveryCharge={0} totalPrice={0} />
     </div>
   );
 }

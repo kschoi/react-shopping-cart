@@ -4,25 +4,19 @@ import ProductItem from './ProductItem';
 import { ProductItemDataParams } from '../../store/modules/products';
 
 interface Props {
-  input: string;
   productItems: ProductItemDataParams[];
-  onCreate(): void;
   onRemove(id: number): void;
   onToggle(id: number): void;
   onSubtract(id: number): void;
   onAdd(id: number): void;
-  onChange(e: any): void;
 }
 
 const ProductList: React.SFC<Props> = ({
-  input,
   productItems,
-  onCreate,
   onRemove,
   onToggle,
   onSubtract,
   onAdd,
-  onChange
 }) => {
 
   const productItemList = productItems.map(product =>
@@ -33,6 +27,7 @@ const ProductList: React.SFC<Props> = ({
         selected={product.selected}
         quantity={product.quantity}
         price={product.price}
+        imageUrl={product.imageUrl}
         onToggle={() => onToggle(product.id)}
         onRemove={() => onRemove(product.id)}
         onSubtract={() => onSubtract(product.id)}
@@ -51,20 +46,11 @@ const ProductList: React.SFC<Props> = ({
 
 
   return (
-    <div>
-      <h1>상품추가 테스트</h1>
-      <form onSubmit={(e: React.FormEvent<HTMLElement>) => {
-        e.preventDefault();
-        onCreate();
-      }}>
-        상품명
-                <input onChange={onChange} value={input} />
-        <button type="submit">추가하기</button>
-      </form>
+    <>
       <ul>
         {productItemList}
       </ul>
-    </div>
+    </>
   );
 
 }
