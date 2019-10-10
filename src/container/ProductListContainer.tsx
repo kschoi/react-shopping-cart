@@ -31,7 +31,7 @@ class ProductListContainer extends React.Component<Props> {
 	}
 	onAdd = (id: number): void => {
 		const { ProductsActions } = this.props;
-		ProductsActions.add(id);
+        ProductsActions.add(id);
 	}
 
 	render() {

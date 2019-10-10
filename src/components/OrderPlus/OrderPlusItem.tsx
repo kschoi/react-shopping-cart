@@ -11,16 +11,20 @@ interface OrderPlusItemProps {
     disabled? : boolean,
     newOrder? : boolean,
     checked? : boolean,
-    onClick?(event: React.MouseEvent<HTMLElement>) : void
+    onToggle?(event: React.MouseEvent<HTMLElement>) : void
 }
 
-const OrderPlusItem: StatelessComponent<OrderPlusItemProps> = ({mallName, delivType, desc1, desc2, desc3, disabled, newOrder, onClick, checked}) => (
-    
-        newOrder ?
+class OrderPlusItem extends React.PureComponent<OrderPlusItemProps> {
+
+    render() {
+        const {mallName, delivType, desc1, desc2, desc3, disabled, newOrder, onToggle, checked} = this.props;
+
+        return(
+            newOrder ?
             (
                 <li className={checked ? 'on' : ''}>
                     <span className="codr_inp_rdo">
-                        <input type="radio" id="ui_test67" value="" name="ui_test_gr7" checked={checked} onClick={onClick}></input>
+                        <input type="radio" id="ui_test67" name="ui_test_gr7" defaultChecked={checked} onClick={onToggle}></input>
                         <label htmlFor="ui_test67">
                             <span className="tx codr_tx_bold codr_tx_blk2 codr_tx_large"><strong>새로주문하기</strong></span>
                         </label>
@@ -31,7 +35,7 @@ const OrderPlusItem: StatelessComponent<OrderPlusItemProps> = ({mallName, delivT
             (
                 <li className={checked ? 'on' : ''}>
                     <span className="codr_inp_rdo">
-                        <input type="radio" id="ui_test65" value="" name="ui_test_gr7" disabled={disabled} checked={checked} onClick={onClick}></input>
+                        <input type="radio" id="ui_test65" name="ui_test_gr7" disabled={disabled} defaultChecked={checked} onClick={onToggle}></input>
                         <label htmlFor="ui_test65">
                             <span className="codr_prdchg_lst tx">
                                 <span className="cm_mall_ic ty_circle_s">
@@ -61,6 +65,9 @@ const OrderPlusItem: StatelessComponent<OrderPlusItemProps> = ({mallName, delivT
                     </span>
                 </li>
             )
-);
+        );
+        
+    }
+}
 
 export default OrderPlusItem;
